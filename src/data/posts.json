@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "slug": "getting-started-with-nextjs",
+    "title": "Getting Started with Next.js App Router",
+    "excerpt": "Learn the fundamentals of Next.js App Router, including file-based routing, layouts, and server components.",
+    "content": "## Introduction\n\nNext.js 13+ introduced the **App Router**, a new paradigm for building React applications with first-class support for server components, nested layouts, and streaming.\n\n### Why App Router?\n\nThe App Router gives you:\n\n- **Server Components by default** — less JavaScript shipped to the client.\n- **Nested Layouts** — share UI between routes without re-rendering.\n- **Streaming** — progressively render parts of the page.\n\n### Quick Example\n\n```jsx\n// app/page.js — this is a Server Component by default\nexport default function Home() {\n  return <h1>Hello from the App Router!</h1>;\n}\n```\n\n### File-Based Routing\n\nEvery folder inside `app/` becomes a route segment. Add a `page.js` to make it publicly accessible:\n\n```\napp/\n  page.js         → /\n  about/page.js   → /about\n  blog/[slug]/page.js → /blog/:slug\n```\n\n### What's Next?\n\nIn upcoming posts we'll cover data fetching, dynamic routes, and deploying to Vercel.\n\nStay tuned! 🚀",
+    "coverImage": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    "topic": "nextjs",
+    "tags": ["nextjs", "react", "web-development"],
+    "author": "Ajay Unnikuttan",
+    "publishedAt": "2026-10-01T10:00:00.000Z",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "slug": "understanding-react-server-components",
+    "title": "Understanding React Server Components",
+    "excerpt": "A deep dive into React Server Components — what they are, how they work, and when to use them.",
+    "content": "## What Are Server Components?\n\nReact Server Components (RSC) run **only on the server**. They can directly access databases, file systems, and other server-side resources without shipping that code to the browser.\n\n### Key Benefits\n\n1. **Zero bundle size** — Server Components aren't included in the client JS bundle.\n2. **Direct backend access** — Query your database right in your component.\n3. **Automatic code splitting** — Client Components are code-split by default.\n\n```jsx\n// This component runs on the server\nexport default async function PostList() {\n  const posts = await db.query('SELECT * FROM posts');\n  return (\n    <ul>\n      {posts.map(post => (\n        <li key={post.id}>{post.title}</li>\n      ))}\n    </ul>\n  );\n}\n```\n\n### When to Use Client Components\n\nAdd `'use client'` at the top of a file when you need:\n- Event handlers (`onClick`, `onChange`)\n- State (`useState`, `useReducer`)\n- Browser-only APIs (`window`, `localStorage`)\n\nMore on this in future posts!",
+    "coverImage": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    "topic": "react",
+    "tags": ["react", "server-components", "performance"],
+    "author": "Ajay Unnikuttan",
+    "publishedAt": "2026-09-28T14:30:00.000Z",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "slug": "tailwind-css-tips-and-tricks",
+    "title": "Tailwind CSS Tips & Tricks for Faster Development",
+    "excerpt": "Boost your productivity with these lesser-known Tailwind CSS techniques and patterns.",
+    "content": "## Level Up Your Tailwind Game\n\nTailwind CSS is more than just utility classes. Here are some tips to make your workflow even faster.\n\n### 1. Use Arbitrary Values\n\nNeed a specific value that isn't in the default scale?\n\n```html\n<div class=\"w-[327px] h-[200px] bg-[#1a1a2e]\">\n  Custom dimensions and colors!\n</div>\n```\n\n### 2. Group Hover States\n\nStyle child elements based on parent hover:\n\n```html\n<div class=\"group\">\n  <h3 class=\"group-hover:text-blue-500\">Title</h3>\n  <p class=\"group-hover:opacity-100 opacity-0\">Description</p>\n</div>\n```\n\n### 3. Dark Mode Made Easy\n\nTailwind's `dark:` variant makes theming simple:\n\n```html\n<div class=\"bg-white dark:bg-gray-900\">\n  <p class=\"text-gray-900 dark:text-gray-100\">Auto-themed!</p>\n</div>\n```\n\nMore advanced patterns coming soon!",
+    "coverImage": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&h=400&fit=crop",
+    "topic": "css",
+    "tags": ["tailwind", "css", "web-development"],
+    "author": "Ajay Unnikuttan",
+    "publishedAt": "2026-09-25T09:00:00.000Z",
+    "featured": false
+  }
+]

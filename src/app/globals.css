@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
+/*
+ * ============================================
+ * Theme — CSS Custom Properties
+ * ============================================
+ * Placeholder dark palette. Swap these values
+ * once the final brand palette is decided.
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background layers */
+  --background: #0b0d17;
+  --surface: #121626;
+  --surface-hover: #1a1f35;
+
+  /* Foreground / text */
+  --foreground: #e4e6f0;
+  --muted: #8b8fa3;
+
+  /* Accent */
+  --accent: #6c63ff;
+  --accent-hover: #8b83ff;
+  --accent-muted: rgba(108, 99, 255, 0.15);
+
+  /* Borders */
+  --border: #1e2235;
+  --border-hover: #2d3250;
+
+  /* Code blocks */
+  --code-bg: #0f1120;
+
+  /* Misc */
+  --radius: 0.75rem;
 }
 
+/* Wire CSS variables into Tailwind v4 @theme */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-code-bg: var(--code-bg);
+  --radius-theme: var(--radius);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base element styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Smooth transitions globally */
+* {
+  transition-property: color, background-color, border-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+/* Utility: clamp text to N lines (used by PostCard, etc.) */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
