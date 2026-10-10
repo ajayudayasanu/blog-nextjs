@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "dev:vinext": "vite dev --port 3001",
-    "build:vinext": "vite build"
+    "build:vinext": "vite build",
+    "deploy": "vite build && wrangler deploy",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "date-fns": "^4.4.0",
@@ -21,13 +23,17 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.63.1",
+    "@cloudflare/workers-types": "^5.20261010.1",
     "@tailwindcss/postcss": "^4",
     "@vitejs/plugin-rsc": "^0.5.36",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "patch-package": "^8.0.1",
     "tailwindcss": "^4",
     "vinext": "^0.0.7",
-    "vite": "^7.3.7"
+    "vite": "^7.3.7",
+    "wrangler": "^4.149.0"
   },
   "type": "module"
 }

@@ -1,0 +1,18 @@
+diff --git a/node_modules/vinext/dist/deploy.js b/node_modules/vinext/dist/deploy.js
+index 0de27e4..2a9b020 100644
+--- a/node_modules/vinext/dist/deploy.js
++++ b/node_modules/vinext/dist/deploy.js
+@@ -596,11 +596,12 @@ export function buildWranglerDeployArgs(options) {
+     return { args, env };
+ }
+ function runWranglerDeploy(root, options) {
+-    const wranglerBin = path.join(root, "node_modules", ".bin", "wrangler");
++    const wranglerBin = path.join(root, "node_modules", ".bin", process.platform === "win32" ? "wrangler.cmd" : "wrangler");
+     const execOpts = {
+         cwd: root,
+         stdio: "pipe",
+         encoding: "utf-8",
++        shell: process.platform === "win32",
+     };
+     const { args, env } = buildWranglerDeployArgs(options);
+     if (env) {
